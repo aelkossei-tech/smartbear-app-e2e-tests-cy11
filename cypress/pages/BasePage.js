@@ -15,6 +15,10 @@ export default class BasePage {
     return cy.get('#ctl00_menu a');
   }
 
+  clickOnLeftPanelOptions(optionText) {
+    this.getLeftPanelOptions().contains(optionText).click(); 
+  }
+
   getRightPanelHeading() {
     return cy.get('h2');
   }
