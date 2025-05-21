@@ -1,0 +1,162 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs28 \cf0 \ul \ulc0 URL of the website we\'92re testing
+\f1\b0 \ulnone : http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx \
+\
+
+\f0\b \ul PAGES
+\f1\b0 \ulnone : \
+	1.) LoginPage\
+	2.) BasePage\
+		a.) WebOrdersPage\
+		b.) WebOrdersProductsPage\
+		c.) WebOrdersProcessPage\
+\
+6 Test Cases: \
+	- 2 positive \'97> login & logout \
+	- 4 negative \'97> invalid credentials \
+\
+\
+Create an Automation Framework: \
+	- Cypress for UI - API automation \
+	- TDD Approach (Test-Driven Development) \
+	- Version Control - GIT \
+\
+	- Test Case Management \'97> JIRA or Azure DevOps\
+\
+\
+
+\fs32 \ul Steps to Prepare Testing Environment
+\fs28 :\ulnone  \
+1.) Create a new folder and give it a proper name for your framework \'97> \'93smartbear-e2e-test\'94 \
+\
+2.) Run below common to start a new Node/npm project \
+	npm init -y [-y flag just give you the default values]\
+\
+3.) Download/Install Cypress dependency \
+	npm i cypress -D\
+	npm i cypress \'97save-dev\
+\
+*Don\'92t do everything all at once \'97> because more work = more expectations [step-by-step \'97> add dependencies one by one + GIT commit history should show the thinking behind framework (not all at once)]. Document every step, so that people can actually understand the vision\
+\
+4.) Run below command to launch Cypress Test runner\
+	npx cypress open \
+\
+5.) Create your \'93integration\'94 folder and under that create your first test/spec \
+6.) Run a simple test to make sure set up is good so far [like visiting the URL]\
+7.) To design your first scripts, create page object models \
+	LoginPage\
+	BasePage\
+*When getting id, make sure it\'92s not dynamic first (refresh and see if it changes) \
+\
+8.) Complete/run your first script\
+9.) Organize env variables, test accounts to read them better instead of hard-coding \
+10.) Set up .env with dotenv dependency \
+	a.) Install dependency: npm i dotenv -D \
+	b.) Create .env file in root path and add useful properties (environment variables)\
+	c.) Set cypress.config.js to be able to read properties from .env \
+	d.) Replace these in your scripts instead of hard-coded values\
+\
+11.) Push the set up and DEMO! \
+	a.) git init \
+	b.) add \'93.gitignore\'94 file \
+		- add .env + /node_modules  + .DS_Store\
+	c.) git add . \
+	d.) git commit -m \
+	e.) git push [first push] \
+	\
+\
+Steps: \
+	1.) Write a Test Case \
+	2.) Manually test it with JIRA - Zephyr (or Azure DevOps Test Plans/Suites)\
+	3.) Automate it with Cypress (or Playwright) \
+\
+@Smoke\
+Test Case 01: Validate login with valid credentials \
+	Go to \'93url/website\'94 \
+	Enter username as \'93Tester\'94\
+	Enter password as \'93test\'94 \
+	Click on \'93Login\'94 button \
+	Validate that user is logged in \
+	Validate url contains \'93weborders\'94\
+	Validate \'93Welcome, Tester!\'94 is visible \
+	Validate \'93Logout\'94 button is visible \
+	Validate \'93Web Orders\'94 heading is visible \
+\
+@Smoke \
+Test Case 02: Validate logout\
+	Go to \'93url/website\'94 \
+	Enter username as \'93Tester\'94\
+	Enter password as \'93test\'94 \
+	Click on \'93Login\'94 button \
+	Click on \'93Logout\'94 button \
+	Validate that url contains \'93Login\'94 \
+	Validate that the login form is visible \
+\
+@Smoke\
+Test Case 03: Validate login with empty credentials \
+	Go to \'93url/website\'94 \
+	Click on \'93Login\'94 button \
+	Validate the error message is visible and says \'93Invalid Login or Password\'94 \
+	Validate that url contains \'93Login\'94 \
+\
+\
+@Smoke\
+Test Case 04: Validate login with invalid username \
+	Go to \'93url/website\'94 \
+	Enter username as \'93Invalid username\'94\
+	Enter password as \'93test\'94 \
+	Click on \'93Login\'94 button \
+	Validate the error message is visible and says \'93Invalid Login or Password\'94 \
+	Validate that url contains \'93Login\'94 \
+\
+\
+@Smoke\
+Test Case 05: Validate login with invalid password \
+	Go to \'93url/website\'94 \
+	Enter username as \'93Tester\'94\
+	Enter password as \'93InvalidPassword\'94 \
+	Click on \'93Login\'94 button \
+	Validate the error message is visible and says \'93Invalid Login or Password\'94 \
+	Validate that url contains \'93Login\'94 \
+\
+@Smoke\
+Test Case 06: Validate login with invalid credentials \
+	Go to \'93url/website\'94 \
+	Enter username as \'93InvalidUsername\'94\
+	Enter password as \'93InvalidPassword\'94 \
+	Click on \'93Login\'94 button \
+	Validate the error message is visible and says \'93Invalid Login or Password\'94 \
+	Validate that url contains \'93Login\'94 \
+\
+Additional Login with valid credentials \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 	Go to \'93url/website\'94 \
+	Enter username as \'93Tester\'94\
+	Enter password as \'93test\'94 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+Base Test Case: Validate main content after login \
+	- Go to \'93url/website\'94 \
+	- Login with valid username & password \
+	- Validate 3 left panel options are visible \
+		- View all orders \
+		- View all products\
+		- Order \
+	- Validate each left panel option triggers their content on the right panel \
+	- Validate respective headings are visible on the right panel \
+		- List of all orders \
+		- List of all products\
+		- Orders \
+	- Validate content-table is visible for each left panel option on the right panel \
+\
+\
+cy.get(\'91content .table\'92) }

@@ -1,0 +1,20 @@
+{
+  "name": "smartbear-app-e2e-tests-cy11",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "test:smoke": "npx cypress run --env grep='@Smoke'",
+    "test:regression": "npx cypress run --env grep='@Regression'"
+  },
+  "keywords": [],
+  "author": "SmartBear",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cypress/grep": "^4.1.0",
+    "cypress": "^14.3.3",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "dotenv": "^16.5.0"
+  }
+}
