@@ -1,0 +1,34 @@
+name: Smart App - Smoke Tests 
+on: 
+  push: 
+    branches: [master]
+  pull_request: 
+    branches: [master]
+  schedule: 
+    - cron: '0 12 * * *'
+
+jobs: 
+  cypress-run: 
+    runs-on: ubuntu-latest
+    env: 
+      APP_BASE_URL: ${{ vars.APP_BASE_URL}}
+      USERNAME: ${{ vars.USERNAME}}
+      PASSWORD: ${{ vars.PASSWORD}}
+    steps: 
+       - name: Checkout 
+         uses: actions/checkout@v4
+
+       - name: Install Dependencies and Run Smoke Tests  
+         uses: cypress-io/github-actions@v6
+         with: 
+            browser: chrome
+            headed: false 
+            command: npm run test:smoke
+
+       - name: Publish Test Reports 
+         if: always()
+         uses: actions/upload-artifact@v4
+         with: 
+            name: Cypress HTML reports 
+            path: cypress/reports/
+            if-no-files-found: ignore

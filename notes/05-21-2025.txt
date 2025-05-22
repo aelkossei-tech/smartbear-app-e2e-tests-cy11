@@ -1,0 +1,23 @@
+RECAP: 
+
+Pipelines ==> We MUST integrate our triggers/execution for suites (Smoke, Regression, 
+E2E, Accessibilty, System Testing)
+
+1. Set up framework locally 
+    Cypress: 
+    POM Design pattern* 
+    OOP Priniciples: Inheritance, Encapsulation 
+
+2. Link it w/ remote repository
+    Github 
+
+3. Generate reports 
+    Mochawesome
+
+4. Creates suites 
+    Cypress Grep 
+
+5. Integrate with pipelines 
+    Automate triggers (execution)
+    Increase visibility of logs to other team members 
+    Scheduling triggers
