@@ -1,0 +1,12 @@
+Create suites and run them separately
+We'll use @cypress/grep dependency
+Modifications in e2e.js and cypress.config.js
+Created custom scripts to run suites easily
+
+
+
+Steps to generate HTML Reports:
+1. Install mochawesome dependency
+	npm i cypress-mochawesome-reporter -D
+
+2. Update cypress.config.js (reporter)
